@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KyorinthiumLabs Support</title>
+    <meta
+      name="description"
+      content="Support center for KyorinthiumLabs mobile apps, including Who Am I? Guess Me!, Blockforge, LinePath, AlfaBilgi, Arcana, and AiStudio."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f6f8;
+        --surface: #ffffff;
+        --ink: #24262b;
+        --muted: #646873;
+        --line: #e6e7ec;
+        --primary: #6c40bd;
+        --primary-2: #a67bfa;
+        --gold: #ffca4d;
+        --cyan: #50e1f9;
+        --shadow: 0 24px 70px rgba(70, 50, 120, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 12% 8%, rgba(80, 225, 249, 0.22), transparent 34rem),
+          radial-gradient(circle at 88% 14%, rgba(166, 123, 250, 0.25), transparent 30rem),
+          linear-gradient(180deg, #fff 0%, var(--bg) 44%);
+        color: var(--ink);
+        font-family:
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--primary);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 28px 0 12px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 950;
+        letter-spacing: -0.04em;
+        font-size: clamp(22px, 4vw, 32px);
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        box-shadow: 0 14px 34px rgba(108, 64, 189, 0.28);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--ink);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero {
+        padding: 72px 0 46px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(108, 64, 189, 0.1);
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        letter-spacing: -0.045em;
+        line-height: 1.03;
+      }
+
+      h1 {
+        margin-top: 18px;
+        font-size: clamp(44px, 8vw, 84px);
+      }
+
+      h2 {
+        font-size: clamp(30px, 5vw, 48px);
+      }
+
+      h3 {
+        font-size: 22px;
+      }
+
+      .lead {
+        margin: 22px 0 0;
+        max-width: 670px;
+        color: var(--muted);
+        font-size: clamp(17px, 2.4vw, 21px);
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: #fff;
+        font-weight: 950;
+        box-shadow: 0 16px 34px rgba(108, 64, 189, 0.28);
+      }
+
+      .button.secondary {
+        background: var(--surface);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        box-shadow: none;
+      }
+
+      .hero-card {
+        position: relative;
+        overflow: hidden;
+        padding: 28px;
+        border-radius: 38px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(18px);
+      }
+
+      .status-card {
+        padding: 18px;
+        border-radius: 26px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+      }
+
+      .support-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .support-row {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 14px;
+        border-radius: 22px;
+        background: var(--surface);
+      }
+
+      .icon {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        border-radius: 14px;
+        background: rgba(108, 64, 189, 0.1);
+      }
+
+      main {
+        padding-bottom: 58px;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: end;
+        margin-bottom: 24px;
+      }
+
+      .section-head p {
+        max-width: 520px;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        padding: 24px;
+        border-radius: 32px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: 0 16px 42px rgba(48, 42, 68, 0.07);
+      }
+
+      .app-card {
+        min-height: 250px;
+      }
+
+      .app-icon {
+        width: 70px;
+        height: 70px;
+        display: grid;
+        place-items: center;
+        border-radius: 24px;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 950;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      }
+
+      .app-icon.blockforge {
+        background: linear-gradient(135deg, #121212, #575757);
+      }
+
+      .app-icon.linepath {
+        background: linear-gradient(135deg, #006d77, #50e1f9);
+      }
+
+      .app-icon.alfabilgi {
+        background: linear-gradient(135deg, #ff8a00, #ffca4d);
+      }
+
+      .app-icon.arcana {
+        background: linear-gradient(135deg, #2e1065, #d946ef);
+      }
+
+      .app-icon.aistudio {
+        background: linear-gradient(135deg, #0f172a, #38bdf8);
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: var(--bg);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .faq {
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        padding: 18px 20px;
+        border-radius: 24px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 950;
+      }
+
+      details p {
+        margin: 12px 0 0;
+        color: var(--muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 26px 0 40px;
+        color: var(--muted);
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 780px) {
+        nav,
+        .section-head,
+        .footer-grid {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 44px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="shell">
+        <nav>
+          <div class="brand" aria-label="KyorinthiumLabs Support">
+            <span class="brand-mark">?</span>
+            <span>KyorinthiumLabs Support</span>
+          </div>
+          <div class="nav-links">
+            <a class="pill" href="#apps">Apps</a>
+            <a class="pill" href="#support">Support</a>
+            <a class="pill" href="privacy.html">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="shell hero">
+        <div>
+          <span class="eyebrow">Mobile app support</span>
+          <h1>Help center for our games and apps.</h1>
+          <p class="lead">
+            Find quick help, account guidance, privacy information, and support
+            links for KyorinthiumLabs mobile apps in one place.
+          </p>
+          <div class="cta-row">
+            <a class="button" href="#support">Get Support</a>
+            <a class="button secondary" href="privacy.html">Read Privacy Policy</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Support overview">
+          <h3>Before contacting support</h3>
+          <div class="support-list">
+            <div class="support-row">
+              <span class="icon">1</span>
+              <div>
+                <strong>Update the app</strong>
+                <div>Install the latest App Store or Google Play version.</div>
+              </div>
+            </div>
+            <div class="support-row">
+              <span class="icon">2</span>
+              <div>
+                <strong>Restart and sign in again</strong>
+                <div>This fixes most login and connection issues.</div>
+              </div>
+            </div>
+            <div class="support-row">
+              <span class="icon">3</span>
+              <div>
+                <strong>Send useful details</strong>
+                <div>App name, device model, app version, and screenshots help us move fast.</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="apps">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <h2>Supported Apps</h2>
+            </div>
+            <p>
+              This page is designed as a shared support hub, so new apps can be
+              added without creating a new support site every time.
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card app-card">
+              <div class="app-icon">?</div>
+              <h3 style="margin-top: 18px">Who Am I? Guess Me!</h3>
+              <p>
+                A character guessing game with classic boards, category modes,
+                AI opponents, multiplayer rooms, and leaderboards.
+              </p>
+              <div class="tag-row">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Game</span>
+                <span class="tag">Account support</span>
+              </div>
+            </article>
+
+            <article class="card app-card">
+              <div class="app-icon blockforge">B</div>
+              <h3 style="margin-top: 18px">Blockforge</h3>
+              <p>
+                Puzzle and strategy support for gameplay questions, progress
+                issues, store listing questions, and general troubleshooting.
+              </p>
+              <div class="tag-row">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Game</span>
+              </div>
+            </article>
+
+            <article class="card app-card">
+              <div class="app-icon linepath">L</div>
+              <h3 style="margin-top: 18px">LinePath</h3>
+              <p>
+                Support for path puzzles, level progress, app performance,
+                device compatibility, and account or purchase questions.
+              </p>
+              <div class="tag-row">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Puzzle</span>
+              </div>
+            </article>
+
+            <article class="card app-card">
+              <div class="app-icon alfabilgi">A</div>
+              <h3 style="margin-top: 18px">AlfaBilgi</h3>
+              <p>
+                Help for learning content, quiz flows, login issues, data
+                requests, and feedback about educational features.
+              </p>
+              <div class="tag-row">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Education</span>
+              </div>
+            </article>
+
+            <article class="card app-card">
+              <div class="app-icon arcana">✦</div>
+              <h3 style="margin-top: 18px">Arcana</h3>
+              <p>
+                Support for app access, saved history, subscriptions or
+                purchases, privacy requests, and feature suggestions.
+              </p>
+              <div class="tag-row">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Lifestyle</span>
+              </div>
+            </article>
+
+            <article class="card app-card">
+              <div class="app-icon aistudio">AI</div>
+              <h3 style="margin-top: 18px">AiStudio</h3>
+              <p>
+                Help center entry for AI tools, generation issues, account
+                support, billing questions, and responsible-use feedback.
+              </p>
+              <div class="tag-row">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">AI Tools</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="support">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <h2>Contact Support</h2>
+            </div>
+            <p>
+              For the fastest help, include your app name, platform, device,
+              app version, account email if relevant, and a short description of
+              what happened.
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <h3>Email support</h3>
+              <p>
+                For bugs, account problems, purchase questions, data requests,
+                and feature requests, send an email with the app name, device,
+                app version, and screenshots if useful.
+              </p>
+              <p>
+                <a href="mailto:kyorinthiumlabs@gmail.com">
+                  kyorinthiumlabs@gmail.com
+                </a>
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Privacy and data requests</h3>
+              <p>
+                If you want to request account deletion, data export, or privacy
+                help, open a support request and include the app name and your
+                account email.
+              </p>
+              <p><a href="privacy.html">View privacy policy</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <h2>FAQ</h2>
+            </div>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>I cannot sign in with Google or Apple. What should I do?</summary>
+              <p>
+                Make sure the app is updated, restart the app, and try again. If
+                the issue continues, send your platform, device model, app
+                version, and a screenshot of the error.
+              </p>
+            </details>
+            <details>
+              <summary>How do I request account deletion?</summary>
+              <p>
+                Send an email with the app name and account email.
+                We may ask you to confirm ownership before deleting data.
+              </p>
+            </details>
+            <details>
+              <summary>Which languages do you support?</summary>
+              <p>
+                You can contact us in any language. We primarily write in
+                Turkish or English, but we use translation tools when needed so
+                we can understand and respond to support requests from all users.
+              </p>
+            </details>
+            <details>
+              <summary>Where can I find the privacy policy?</summary>
+              <p>
+                The shared privacy policy is available at
+                <a href="privacy.html">privacy.html</a>. App-specific details
+                are listed where relevant.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-grid">
+        <div>
+          <strong>KyorinthiumLabs Support</strong>
+          <div>Independent mobile games and apps.</div>
+        </div>
+        <div>
+          <a href="#apps">Apps</a> ·
+          <a href="#support">Support</a> ·
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
